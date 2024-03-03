@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+
+    .card-header {
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .profile-picture {
+      max-width: 200px;
+      border-radius: 50%;
+    }
+
+    .btn-logout {
+      background-color: #dc3545;
+      border-color: #dc3545;
+    }
+
+    .btn-logout:hover {
+      background-color: #c82333;
+      border-color: #bd2130;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0">User Profile</h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4 text-center">
+                {% if user.profile_picture %}
+                <img src="{{ user.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+                {% else %}
+                <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture">
+                {% endif %}
+              </div>
+              <div class="col-md-8">
+                <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <th scope="row">First Name</th>
+                      <td>{{ user.first_name }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Last Name</th>
+                      <td>{{ user.last_name }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Username</th>
+                      <td>{{ user.username }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Email</th>
+                      <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Address</th>
+                      <td>{{ user.address }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">City</th>
+                      <td>{{ user.city }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">State</th>
+                      <td>{{ user.state }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Pincode</th>
+                      <td>{{ user.pincode }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <a href="{% url 'logout' %}" class="btn btn-lg btn-block btn-logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script
